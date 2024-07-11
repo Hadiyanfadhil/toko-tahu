@@ -1,73 +1,16 @@
-{{-- <x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
-        <x-jet-validation-errors class="mb-4" />
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout> --}}
-
-
 @extends('frontEnd.layouts.app')
 @section('content')
     <section class="py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="#">Home</a></li>
-                          <li class="breadcrumb-item"><a href="#">Library</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Data</li>
-                        </ol>
-                    </nav>
+            <div class="row my-5">
+                <div class="col-md-6">
+                    <img src="{{ asset('images/tahu-tiga-bola.png') }}" class="img-fluid" alt="Tahu Tiga Bola">
+                    
                 </div>
-            </div>
-            <div class="row my-5 py-5">
-                <div class="col-6 offset-3">
-                    <div class="card border-0  shadow" style="border-radius: 10px">
-                        <div class="card-header bg-transparent">
-                            <h5 class="mb-0 py-2">Login</h5>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <div class="card border-0 shadow" style="border-radius: 10px;">
+                        <div class="card-header bg-transparent text-center">
+                            <h3 class="mb-0 py-2">Login</h3>
                         </div>
                         <div class="card-body">
                             @if (session('status'))
@@ -79,32 +22,43 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}" required autofocus>
+                                    <label for="email" class="form-label">Email or Username</label>
+                                    <input type="text" class="form-control" name="email" id="email" value="{{ old('email') }}" required autofocus>
                                     @error('email')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password" id="password" value="{{ old('password') }}" required autocomplete="current-password">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="password" id="password" required autocomplete="current-password">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                        </span>
+                                    </div>
                                     @error('password')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 @if (Route::has('password.request'))
-                                <a class="text-secondary " href="{{ route('password.request') }}">
-                                    {{ __('Forgot your password?') }}
+                                <a class="text-secondary" href="{{ route('password.request') }}">
+                                    {{ __('Forgot password?') }}
                                 </a>
-                            @endif
-                            <hr>
-                                <div class="mt-3 d-flex align-items-center">
-                                    <button class="btn btn-primary text-white  px-3">Login</button>
-                                    <p class="mb-0 ms-2">If you don't have an account, <a href="{{ route('register') }}" class="text-danger">Register Here</a> .</p>
+                                @endif
+                                <div class="d-grid gap-2 mt-3">
+                                    <button class="btn btn-danger text-white px-3">LOGIN</button>
+                                </div>
+                                <hr>
+                                <div class="text-center">
+                                    <p>or login with</p>
+                                    <button class="btn btn-outline-primary me-2"><i class="bi bi-google"></i> Google</button>
+                                    <button class="btn btn-outline-primary"><i class="bi bi-facebook"></i> Facebook</button>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <p>Don't have an account yet? <a href="{{ route('register') }}" class="text-danger">Sign UP</a></p>
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -112,4 +66,56 @@
     </section>
 @endsection
 
+<style>
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
+.card-header {
+    background-color: transparent;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 30px;
+    padding: 15px;
+}
+
+.btn-danger {
+    background-color: #e3342f;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.btn-outline-primary {
+    border-radius: 30px;
+}
+
+.input-group-text {
+    border: none;
+    background-color: transparent;
+}
+
+.bi-eye-slash, .bi-eye {
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+    
+    togglePassword.addEventListener('click', function(e) {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('bi-eye');
+    });
+});
+</script>

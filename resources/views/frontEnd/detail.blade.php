@@ -91,9 +91,9 @@
                                         @php
                                             $price = !empty($product->discount_price) ? $product->selling_price - $product->discount_price : $product->selling_price;
                                         @endphp
-                                            <h5 class="mb-0 text-danger">SubTotal : {{ $price }} Ks</h5>
+                                            <h5 class="mb-0 text-danger">SubTotal : {{ $price }} Rp</h5>
                                         @if (!empty($product->discount_price))
-                                            <p class="mb-0 h6 ms-2 text-black-50 text-decoration-line-through">{{ $product->selling_price }} Ks</p>
+                                            <p class="mb-0 h6 ms-2 text-black-50 text-decoration-line-through">{{ $product->selling_price }} Rp</p>
                                         @endif
                                     </div>
                                     <hr>

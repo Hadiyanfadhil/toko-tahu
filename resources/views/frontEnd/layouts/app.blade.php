@@ -78,7 +78,7 @@
             </div>
         </div>
         <!-- -------------------------------header2-------------------------------------  -->
-        <div class="py-3 header-2 bg-primary" style="border-bottom: 1px solid #ffffff50 ;">
+        <div class="py-3 header-2 bg-primary" style="border-bottom: 1px solid #ffff50 ;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -121,9 +121,9 @@
                                                         $total += $item['price'] * $item['quantity']
                                                      @endphp
                                             @endforeach
-                                            <p class="px-2 py-2 mb-0">CART - {{ $total}} Ks</p>
+                                            <p class="px-2 py-2 mb-0">CART - {{ $total}} Rp</p>
                                         @else
-                                            <p class="px-2 py-2 mb-0">CART - 0 Ks</p>
+                                            <p class="px-2 py-2 mb-0">CART - 0 Rp</p>
                                         @endif
                                     </div>
                                 </a>
@@ -309,7 +309,7 @@
                 <div class="col-4">
                     <div class="footer-box">
                         <h3 class="mb-4 text-primary">{{ $companyInfo->company_name }}</h3>
-                        <p class="mb-3 text-black-50 me-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates numquam ad consequunturesse.</p>
+                        <p class="mb-3 text-black-50 me-2">Berbagai tahu untuk kebutuhan Anda.</p>
                         <div class="d-flex">
                             @if ($companyInfo->facebook)
                             <a href="{{ $companyInfo->facebook }}" class="text-decoration-none me-3 d-flex align-items-center justify-content-center bg-dark rounded-circle " style="width: 40px ; height: 40px; ">
@@ -367,7 +367,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 ">
-                            <p class="py-3 mb-0 text-center text-white-50">www.e-market.com</p>
+                            <p class="py-3 mb-0 text-center text-white-50">www.Tahu3bola.com</p>
                         </div>
                     </div>
                 </div>
@@ -545,7 +545,7 @@
                         }else{
                             let headerCartBoxHtml = `
                                 <span class="mb-0 badge bg-dark rounded-circle position-absolute cart-badge">${response.count}</span>
-                                <p class="px-2 py-2 mb-0">CART - ${response.totalPrice} Ks</p>
+                                <p class="px-2 py-2 mb-0">CART - ${response.totalPrice} Rp</p>
                             `;
                             $('.headerCartBox').html(headerCartBoxHtml);
                             Toast.fire({

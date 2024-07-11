@@ -119,12 +119,12 @@
                         <h5>{{ $item->name }}</h5>
                         <div class="d-flex align-items-baseline">
                             @if (!empty($item->discount_price))
-                                <h6 class="mb-0 text-danger">{{ $item->selling_price - $item->discount_price }} Ks</h6>
+                                <h6 class="mb-0 text-danger">{{ number_format($item->selling_price - $item->discount_price, 0, ',', '.') }} Rp</h6>
                             @else
-                                <h6 class="mb-0 text-danger">{{ $item->selling_price }} Ks</h6>
+                                <h6 class="mb-0 text-danger">{{ number_format($item->selling_price, 0, ',', '.') }} Rp</h6>
                             @endif
                             @if (!empty($item->discount_price))
-                                <p class="mb-0 h6 ms-2 text-black-50 text-decoration-line-through">{{ $item->selling_price }} Ks</p>
+                                <p class="mb-0 h6 ms-2 text-black-50 text-decoration-line-through">{{ number_format($item->selling_price, 0, ',', '.') }} Rp</p>
                             @endif
                         </div>
                     </div>
@@ -181,12 +181,12 @@
                         <h5>{{ $item->name }}</h5>
                         <div class="d-flex align-items-baseline">
                             @if (!empty($item->discount_price))
-                                <h6 class="mb-0 text-danger">{{ $item->selling_price - $item->discount_price }} Ks</h6>
+                                <h6 class="mb-0 text-danger">{{ number_format($item->selling_price - $item->discount_price, 0, ',', '.') }} Rp</h6>
                             @else
-                                <h6 class="mb-0 text-danger">{{ $item->selling_price }} Ks</h6>
+                                <h6 class="mb-0 text-danger">{{ number_format($item->selling_price, 0, ',', '.') }} Rp</h6>
                             @endif
                             @if (!empty($item->discount_price))
-                                <p class="mb-0 h6 ms-2 text-black-50 text-decoration-line-through">{{ $item->selling_price }} Ks</p>
+                                <p class="mb-0 h6 ms-2 text-black-50 text-decoration-line-through">{{ number_format($item->selling_price, 0, ',', '.') }} Rp</p>
                             @endif
                         </div>
                     </div>
@@ -261,12 +261,12 @@
         let productPriceHtml = '';
         if(discountPrice && discountPrice != 0){
             productPriceHtml = `
-                <h6 class="mb-0 text-danger">${sellingPrice - discountPrice} Ks</h6>
-                <p class="mb-0 h6 ms-2 text-black-50 text-decoration-line-through">${sellingPrice} Ks</p>
+                <h6 class="mb-0 text-danger">${sellingPrice - discountPrice} Rp</h6>
+                <p class="mb-0 h6 ms-2 text-black-50 text-decoration-line-through">${sellingPrice} Rp</p>
             `;
         }else{
             productPriceHtml = `
-            <h6 class="mb-0 text-danger">${sellingPrice} Ks</h6>
+            <h6 class="mb-0 text-danger">${sellingPrice} Rp</h6>
             `;
         }
         return productPriceHtml;

@@ -29,7 +29,7 @@
             @endphp
             <div class="mb-3 bg-white border-0 card">
                 <div class="card-body">
-                    <p class="mb-0">Your purchase cost is <strong>{{ $GrandTotal }} Ks</strong>.You can pay {{$GrandTotal }} Ks to our account <p class="mb-0 d-inline-block"><strong class="text-uppercase">" {{ $paymentInfo->type }}</strong> Number - <strong>{{ $paymentInfo->account_number }}</strong> </p> " </p>
+                    <p class="mb-0">Your purchase cost is <strong>{{ $GrandTotal }} Rp</strong>.You can pay {{$GrandTotal }} Rp to our account <p class="mb-0 d-inline-block"><strong class="text-uppercase">" {{ $paymentInfo->type }}</strong> Number - <strong>{{ $paymentInfo->account_number }}</strong> </p> " </p>
                 </div>
             </div>
             <div class="bg-white border-0 card">
@@ -39,16 +39,16 @@
                 <div class="card-body">
                     <div class="mb-3 d-flex justify-content-between">
                         <h6 class="mb-0">Sub Total :</h6>
-                        <h5 class="mb-0">{{$subTotal}} Ks</h5>
+                        <h5 class="mb-0">{{$subTotal}} Rp</h5>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h6 class="mb-0">Coupon Discount :</h6>
-                        <h5 class="mb-0 couponDiscount">-{{ $discountAmount }} Ks</h5>
+                        <h5 class="mb-0 couponDiscount">-{{ $discountAmount }} Rp</h5>
                     </div>
                     <hr>
                     <div class="mb-3 d-flex justify-content-between">
                         <h6 class="mb-0">Grand Total :</h6>
-                        <h5 class="mb-0">{{ $GrandTotal }} Ks</h5>
+                        <h5 class="mb-0">{{ $GrandTotal }} Rp</h5>
                     </div>
                 </div>
             </div>
